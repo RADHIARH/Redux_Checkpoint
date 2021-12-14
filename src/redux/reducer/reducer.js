@@ -1,12 +1,10 @@
 const states = {
   tasks: [],
-  filter: [
-   
-  ],
+  filter: [],
 };
 
 const reducer = (state = states, action) => {
-  //   const id = action.id;
+
   const desc = action.data;
   const idd = action.val;
   const done = action.payload;
@@ -20,7 +18,7 @@ const reducer = (state = states, action) => {
           {
             id: state.tasks.length + 1,
             description: desc,
-            isDone: "false",
+            isDone: false,
         
           },
         ],
@@ -29,7 +27,7 @@ const reducer = (state = states, action) => {
     case "changedone":
       const elementsIndex=state.tasks.findIndex(element=>element.id===idd);
       const newArray = [...state.tasks];
-      newArray[elementsIndex].isDone = "true";
+      newArray[elementsIndex].isDone = !elementsIndex.isDone;
       return {
         ...state,
         tasks:newArray
