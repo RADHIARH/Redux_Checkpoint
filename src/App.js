@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Addtask from "./components/Addtask";
+import Listtask from "./components/ListTask";
+import Navbar from "./components/Navbar";
+import Filter from "./components/Filter";
+import { Route, Switch, Router } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <Navbar />
+      <Switch>
+        <Route exact path="/addtask" component={Addtask} />
+        <Route exact path="/listtasks" component={Listtask} />
+        <Route exact path="/filter" component={Filter} />
+      </Switch>
     </div>
   );
 }

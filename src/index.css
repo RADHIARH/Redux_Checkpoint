@@ -1,13 +1,73 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+/* Addtask */
+.addtask .card {
+  width: 50%;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top:70px
+}
+/* ListTask */
+.list .card {
+  width: 40%;
+  margin-left: 30px;
+}
+.card button {
+  width: 250px;
+  margin-left: 120px;
+}
+
+.list .task {
+  border: 1px solid red;
+
+  padding-left: 20px;
+  margin-top: 20px;
+  margin-left: 200px;
+  margin-top: 20px;
+}
+.list .tasklist {
+  border: 1px solid black;
+  margin-top: 100px;
+}
+.list i {
+  float: right;
+}
+.list .searchtask {
+  border: 1px solid black;
+  margin-top: 100px;
+  margin-left: 20px;
+  padding-top: 30px;
+}
+.list .done {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+.list button {
+  height: 80%;
+}
+/* Navbar */
+
+.navigation .done {
+  margin-right: 10px;
+}
+.navbar {
+  background-color: #e5e5e5;
+}
+.navigation .btn {
+  margin-left: 10px;
+  height: 25px;
+  width: 80px;
+  font-size: 12px;
+  padding: 5px;
 }
