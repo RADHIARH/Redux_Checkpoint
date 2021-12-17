@@ -2,22 +2,25 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { addTask } from '../redux/action';
+import { useHistory } from 'react-router-dom';
 
 const Addtask = () => {
         const [input,setinput]=useState();
         const dispatch = useDispatch();
+        const history = useHistory();
         const add=(desc)=>{
         dispatch(addTask(desc));   
+           history.push("/listtasks");
     }
     return (
     <div className="addtask">
         <div className="card">
             <div className="card-header text-center">
-                     <h3>TO DO LIST</h3>
+                     <h3 className='text-white'>TO DO LIST</h3>
             </div>
             <div className="card-body">
                 <div className="form-group ">
-                   <label htmlFor="task">
+                   <label htmlFor="task" className='text-white'>
                                  Add a task to do
                     </label>                         
                     <input 

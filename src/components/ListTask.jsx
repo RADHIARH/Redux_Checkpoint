@@ -1,16 +1,27 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { changedone } from '../redux/action';
 import { useDispatch } from 'react-redux';
 import { useState } from 'react';
 import { filterTasks } from '../redux/action';
+import { deletetask } from '../redux/action';
+import { showtask } from '../redux/action';
+import { useHistory } from "react-router-dom";
+import { done } from '../redux/action';
 const Listtask = () => {
          const state = useSelector((state) => state.reducer);
          const [checked, setchecked] = useState();
          const dispatch = useDispatch();
-         const Done=(id)=>{
-            document.getElementById(id).style.backgroundColor="A5CC89";
-            dispatch(changedone(id))
+         const history = useHistory();
+         
+        const Delete=(id)=>{
+        dispatch(deletetask(id))
+                   }
+        const ShowTask=(id)=>{
+        dispatch(showtask(id))
+         history.push("/edit");
+                   }
+        const Done=(id)=>{
+        dispatch(done(id))
                    }
         
         const filter=(done)=>{
@@ -18,29 +29,40 @@ const Listtask = () => {
                      }
     return (
         <div className=" row list">  
-             <div className="col tasklist m-4">
-                  <h3 className=" m-4">Tasks List</h3>
+             <div className="col tasklist  ">
+                  <h3 className=" m-4 text-white">Tasks List</h3>
                       {state.tasks.map((element,key)=>{
                                  return(
                                     element.isDone===false ?(
-                                         <div className="card mb-3 "  key={key}  id={element.id} style={{backgroundColor:"#FF0005"}} >
-                                            <div className="card-body ">
-                                                <h3 className="color-black" >{element.description}<i className="fas fa-edit " id={element.id} onClick={()=>Done(element.id) }></i></h3>
-                                            </div>
-                                           
-                                         </div>
-                                  ):
-                                        <div className="card mb-3 "   id={element.id} style={{backgroundColor:"#A5CC89"}}>
-                                           <div className="card-body ">
-                                              <h3 className="color-black" >{element.description}<i class="fas fa-check "   ></i></h3>
+                                        <div className='d-flex' >
+                                             <div className='card m-2 '   onClick={()=>Done(element.id)}style={{backgroundColor:"#FF0005"}}>
+                                                 <h3 className="color-black " >{element.description}   </h3>
+                                                 </div>
+                                                 
+                                                 <i className="fas fa-edit text-white "  onClick={()=>ShowTask(element.id)} id={element.id}>  </i>
+                                                 <i class="fas fa-times text-white" onClick={()=>Delete(element.id)}> </i>
+                                                
                                            </div>
-                                        </div>
+                                         
+                                  ):
+                                            
+                                                
+                                                 <div className='d-flex' >
+                                             <div className='card m-2 ' style={{backgroundColor:"#A5CC89"}}>
+                                                 <h3 className="color-black " >{element.description}   </h3>
+                                                 </div>
+                                                 
+                                                 <i className="fas fa-edit text-white "  onClick={()=>ShowTask(element.id)} id={element.id}>  </i>
+                                                 <i class="fas fa-times text-white" onClick={()=>Delete(element.id)}> </i>
+                                                
+                                           </div>
+                                
                                  )
                              })
                          }
              </div>
                                  
-            <div className="col searchtask  m-4 ">
+            <div className="col searchtask ">
                  <h3  className="mb-4">Filter Tasks</h3>
                              {/* Dropdown */}
                         <div className=" d-flex">
@@ -56,7 +78,7 @@ const Listtask = () => {
                                                         Not Done
                                     </label>
                             </div>
-                            <button class="btn btn-secondary "   onClick={()=>filter(checked)} type="button"  >
+                            <button class="btn btn-secondary  filter"   onClick={()=>filter(checked)} type="button"  >
                                     Filter Tasks
                             </button>
                         </div>
