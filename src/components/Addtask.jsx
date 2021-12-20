@@ -10,6 +10,7 @@ const Addtask = () => {
         const history = useHistory();
         const add=(desc)=>{
         dispatch(addTask(desc));   
+        
            history.push("/listtasks");
     }
     return (

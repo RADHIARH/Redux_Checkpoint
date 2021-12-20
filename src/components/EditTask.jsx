@@ -24,8 +24,6 @@ const Edittask = () => {
                <button className='btn btn-primary m-2' onClick={()=>Edit(element.id,input)}>Edit</button>
                 </div>
                 )
-             
-                
             })
            
 }

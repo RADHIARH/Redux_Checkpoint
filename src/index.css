@@ -19,8 +19,8 @@ code {
   margin-top: 70px;
   background-color: black;
 }
-.addtask button{
-  margin-left:150px
+.addtask button {
+  margin-left: 150px;
 }
 /* ListTask */
 
@@ -32,19 +32,22 @@ code {
 .list .tasklist {
   margin-top: 100px;
   height: 100%;
-  background-color: black;
-  margin-left:100px;
+  border: 2px solid black;
+  margin-left: 100px;
   margin-top: 50px;
- 
 }
 .list i {
-  float: right;
+  float: right;  
+   margin-left: 10px;
+  margin-top: 30px;
 }
+
 .list .searchtask {
-  margin-left:100px;
+  margin-left: 100px;
   margin-top: 50px;
+  margin-bottom: 30px;
   padding-top: 30px;
-  background-color: white;
+  border: 2px solid black;
 }
 .list .done {
   margin-left: 20px;
@@ -53,12 +56,10 @@ code {
 .list .filter {
   height: 80%;
 }
-.list i{
-  margin-left:10px;
-  margin-top:20px
-}
-.list .card{
-  width:300px
+
+.tasklist .card {
+  width: 380px;
+  height: 80px;
 }
 
 /* Navbar */
@@ -88,6 +89,6 @@ code {
 }
 .edit button {
   margin-left: 25px;
-  
-  height:40px
+
+  height: 40px;
 }

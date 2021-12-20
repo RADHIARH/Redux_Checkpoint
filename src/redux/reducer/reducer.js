@@ -1,10 +1,9 @@
 const states = {
   tasks: [],
   filter: [],
-  tasktoedit: [],
+  tasktoedit: []
 };
-
-const reducer = (state = states, action) => {
+const reducer = (state=states,action) => {
   const desc = action.data;
   const idd = action.val;
   const done = action.payload;
@@ -15,37 +14,44 @@ const reducer = (state = states, action) => {
 
   switch (action.type) {
     case "addtask":
+       const maxid=state.tasks.reduce((acc,current)=>current.id>acc?current.id:acc,0)
       return {
         ...state,
         tasks: [
           ...state.tasks,
           {
-            id: state.tasks.length + 1,
+            id: maxid + 1,
             description: desc,
             isDone: false,
           },
+          
         ],
+        
       };
+    
     case "done":
-      const index = state.tasks.findIndex(element=> element.id === idd); 
+      const index = state.tasks.findIndex((element) => element.id === idd); 
       const newTasks = [...state.tasks]; 
       newTasks[index].isDone = true;
       return {
         ...state,
-        tasks: newTasks
+        tasks: newTasks,
       };
     case "edit":
-      const elementsIndex = state.tasks.findIndex(element => element.id === id2);
+      const elementsIndex = state.tasks.findIndex(
+        (element) => element.id === id2
+      );
       const newArray = [...state.tasks];
       newArray[elementsIndex].description = desc1;
       return {
         ...state,
-        tasks: newArray
+        tasks: newArray,
       };
     case "filtertasks":
       return {
         ...state,
         filter: state.tasks.filter((element) => element.isDone === done),
+        
       };
 
     case "deletetask":

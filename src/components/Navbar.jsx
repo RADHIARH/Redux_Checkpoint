@@ -20,7 +20,8 @@ const Navbar = () => {
                           </li>
                           <li className="nav-item">
                               <NavLink className="nav-link fs-6 text-black" to="/listtasks"> 
-                                List Tasks({state.tasks.length})
+                                List Tasks
+                                ({state.tasks.length})
                               </NavLink>
                           </li>  
                         </ul>
