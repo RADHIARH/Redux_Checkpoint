@@ -30,7 +30,7 @@ const Addtask = () => {
                     value={input}
                     onChange={event=>setinput(event.target.value)}
                          />
-                    <button className=" btn btn-primary  btn-block mt-5  " onClick={()=>{add(input)}} >Add to do list
+                    <button type="submit" className=" btn btn-primary  btn-block mt-5  " onClick={()=>{add(input)}} >Add to do list
                     </button>    
                 </div>         
             </div>
